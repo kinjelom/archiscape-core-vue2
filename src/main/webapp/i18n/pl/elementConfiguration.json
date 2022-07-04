@@ -1,0 +1,28 @@
+{
+  "archiscapeCoreApp": {
+    "elementConfiguration": {
+      "home": {
+        "title": "Element Configuration",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Dodaj Element Configuration",
+        "createOrEditLabel": "Dodaj lub edytuj: Element Configuration",
+        "notFound": "No Element Configurations found"
+      },
+      "created": "Utworzono nowy obiekt typu Element Configuration z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Element Configuration z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Element Configuration z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Element Configuration {{ id }}?"
+      },
+      "detail": {
+        "title": "Element Configuration"
+      },
+      "id": "Id",
+      "name": "Name",
+      "documentation": "Documentation",
+      "technology": "Technology",
+      "eolDate": "Eol Date",
+      "team": "Team"
+    }
+  }
+}

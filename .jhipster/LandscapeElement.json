@@ -1,0 +1,63 @@
+{
+  "applications": "*",
+  "changelogDate": "20220704214316",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "landscape_element",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "30",
+      "options": {
+        "id": true
+      }
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "documentation",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "2048"
+    },
+    {
+      "fieldName": "technology",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "c4type",
+      "fieldType": "C4ElementType",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "PERSON,SOFTWARE_SYSTEM,APP_CONTAINER,SVC_CONTAINER,RELATIONSHIP"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "LandscapeElement",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "landscape",
+      "otherEntityRelationshipName": "landscapeElement",
+      "relationshipName": "landscape",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityName": "elementConfiguration",
+      "otherEntityRelationshipName": "landscapeElement",
+      "relationshipName": "elementConfiguration",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}
