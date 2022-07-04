@@ -1,0 +1,111 @@
+//@dto(mapstruct)
+//@service(serviceImpl)
+entity Team {
+	@Id id String required maxlength(30)
+	description String
+}
+
+relationship ManyToMany {
+	Team{user required} to User{team required}
+}
+
+entity Landscape {
+	@Id id String required maxlength(10)
+    description String
+}
+
+enum C4ElementType {
+	PERSON, SOFTWARE_SYSTEM, APP_CONTAINER, SVC_CONTAINER, RELATIONSHIP
+}
+
+entity ElementConfiguration {
+	@Id id String required maxlength(30)
+    name String required maxlength(50)
+	documentation String required maxlength(2048)
+    technology String required maxlength(50)
+    eolDate LocalDate
+}
+relationship ManyToOne {
+	ElementConfiguration{team required} to Team
+}
+
+
+entity LandscapeElement {
+	@Id id String required maxlength(30)
+    name String required maxlength(50)
+	documentation String required maxlength(2048)
+    technology String maxlength(50)
+    c4type C4ElementType required
+}
+
+relationship ManyToOne {
+	LandscapeElement{landscape required} to Landscape
+	LandscapeElement{elementConfiguration} to ElementConfiguration
+}
+
+entity Project {
+	name String required maxlength(50)
+    description String
+    extProjectId String maxlength(100)
+    active Boolean required
+    srcUrl String maxlength(2048)
+    contentStoreUrl String maxlength(2048)
+}
+
+relationship ManyToOne {
+	Project{landscape required} to Landscape
+	Project{team required} to Team
+}
+
+entity ProjectElement {
+    name String maxlength(50)
+	documentation String maxlength(2048)
+    technology String maxlength(50)
+    c4type C4ElementType required
+	landscapeElementId String maxlength(30)
+    extElementId String maxlength(100)
+    extSourceElementId String maxlength(100)
+    extTargetElementId String maxlength(100)
+}
+
+relationship ManyToOne {
+	ProjectElement{project required} to Project
+	ProjectElement{elementConfiguration} to ElementConfiguration
+}
+
+enum C4ViewLevel {
+	CONTEXT, CONTAINERS
+}
+
+entity ProjectView {
+    name String maxlength(50)
+	documentation String maxlength(2048)
+    c4level C4ViewLevel required
+    extElementId String maxlength(100)
+    image ImageBlob
+}
+
+relationship ManyToOne {
+	ProjectView{project required} to Project
+	ProjectView{projectElement required} to ProjectElement{projectView required}
+}
+
+
+entity TextFileContent {
+    @Id id UUID required
+    version Integer required
+    insertDate LocalDate required
+    fileName String
+    content TextBlob required
+}
+
+
+// Set pagination options
+paginate all with pagination
+
+// Use Data Transfer Objects (DTO)
+//dto all with mapstruct
+
+// Set service options to all except few
+//service all with serviceImpl
+

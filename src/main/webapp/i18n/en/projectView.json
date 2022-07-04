@@ -1,0 +1,30 @@
+{
+  "archiscapeCoreApp": {
+    "projectView": {
+      "home": {
+        "title": "Project Views",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Project View",
+        "createOrEditLabel": "Create or edit a Project View",
+        "notFound": "No Project Views found"
+      },
+      "created": "A new Project View is created with identifier {{ param }}",
+      "updated": "A Project View is updated with identifier {{ param }}",
+      "deleted": "A Project View is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Project View {{ id }}?"
+      },
+      "detail": {
+        "title": "Project View"
+      },
+      "id": "ID",
+      "name": "Name",
+      "documentation": "Documentation",
+      "c4level": "C 4 Level",
+      "extElementId": "Ext Element Id",
+      "image": "Image",
+      "project": "Project",
+      "projectElement": "Project Element"
+    }
+  }
+}

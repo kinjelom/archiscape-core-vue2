@@ -1,0 +1,85 @@
+{
+  "applications": "*",
+  "changelogDate": "20220704214318",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "project_element",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "documentation",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "2048"
+    },
+    {
+      "fieldName": "technology",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "c4type",
+      "fieldType": "C4ElementType",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "PERSON,SOFTWARE_SYSTEM,APP_CONTAINER,SVC_CONTAINER,RELATIONSHIP"
+    },
+    {
+      "fieldName": "landscapeElementId",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "30"
+    },
+    {
+      "fieldName": "extElementId",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "extSourceElementId",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "extTargetElementId",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ProjectElement",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "project",
+      "otherEntityRelationshipName": "projectElement",
+      "relationshipName": "project",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityName": "elementConfiguration",
+      "otherEntityRelationshipName": "projectElement",
+      "relationshipName": "elementConfiguration",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "projectView",
+      "otherEntityRelationshipName": "projectElement",
+      "relationshipName": "projectView",
+      "relationshipType": "one-to-many",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "service": "no"
+}
